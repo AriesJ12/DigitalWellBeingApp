@@ -1,40 +1,41 @@
 using System;
 using System.Collections.Generic;
+using DigitalWellBeingApp.Models;
 
-public class ActiveWindowTracker
+namespace DigitalWellBeingApp.Services
 {
-    private readonly Dictionary<string, TimeSpan> usageData;
-    private string? currentApp;
-    private DateTime lastCheck;
-
-    public ActiveWindowTracker()
+    public class ActiveWindowTracker
     {
-        usageData = new Dictionary<string, TimeSpan>();
-        lastCheck = DateTime.Now;
-    }
+        private readonly Dictionary<string, UsageRecord> _usage = new();
+        private string _lastProcess;
+        private DateTime _lastSwitchTime;
 
-    /// <summary>
-    /// Call this when you detect the active process has changed.
-    /// </summary>
-    public void NotifyActiveProcess(string? processName)
-    {
-        DateTime now = DateTime.Now;
-
-        if (currentApp != null)
+        public ActiveWindowTracker()
         {
-            var duration = now - lastCheck;
-            if (usageData.ContainsKey(currentApp))
-                usageData[currentApp] += duration;
-            else
-                usageData[currentApp] = duration;
+            _lastProcess = "";
+            _lastSwitchTime = DateTime.Now;
         }
 
-        currentApp = processName;
-        lastCheck = now;
-    }
+        public void NotifyActiveProcess(string processName)
+        {
+            var now = DateTime.Now;
 
-    public Dictionary<string, TimeSpan> GetUsage()
-    {
-        return new Dictionary<string, TimeSpan>(usageData);
+            // Add time to the last process
+            if (!string.IsNullOrEmpty(_lastProcess))
+            {
+                var timeSpent = now - _lastSwitchTime;
+
+                if (!_usage.ContainsKey(_lastProcess))
+                    _usage[_lastProcess] = new UsageRecord(_lastProcess);
+
+                _usage[_lastProcess].AddTime(timeSpent);
+            }
+
+            // Switch to new process
+            _lastProcess = processName;
+            _lastSwitchTime = now;
+        }
+
+        public IReadOnlyDictionary<string, UsageRecord> GetUsage() => _usage;
     }
 }
