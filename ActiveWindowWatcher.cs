@@ -36,7 +36,7 @@ public class ActiveWindowWatcher : IDisposable
     private const uint EVENT_SYSTEM_FOREGROUND = 0x0003;
     private const uint WINEVENT_OUTOFCONTEXT = 0x0000;
 
-    public ActiveWindowWatcher(int pollIntervalMs = 250)
+    public ActiveWindowWatcher(int pollIntervalMs = 60000) //only updates every 1 mins idle
     {
         _procDelegate = WinEventProc;
         _pollIntervalMs = Math.Max(50, pollIntervalMs);
