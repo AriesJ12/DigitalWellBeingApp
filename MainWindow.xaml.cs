@@ -1,23 +1,32 @@
-﻿using System.Text;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace DigitalWellBeingApp;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace DigitalWellBeingApp  
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        private readonly ActiveWindowTracker tracker;
+        private readonly ActiveWindowWatcher watcher;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            tracker = new ActiveWindowTracker();
+            watcher = new ActiveWindowWatcher();
+
+            watcher.OnActiveWindowChanged += (procName, pid, hwnd) =>
+            {
+                tracker.NotifyActiveProcess(procName);
+
+                // update the UI safely
+                Dispatcher.Invoke(() =>
+                {
+                    ActiveProcessText.Text = $"Active: {procName}";
+                });
+            };
+
+            watcher.Start();
+        }
     }
 }
