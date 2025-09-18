@@ -1,3 +1,4 @@
+- background tracking(migrate event on app.xaml.cs dont forget to unhook the event)
 - database saving
 
 ->
