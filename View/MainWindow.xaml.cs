@@ -2,7 +2,7 @@
 using System.Windows;
 using DigitalWellBeingApp.Services;
 
-namespace DigitalWellBeingApp.ViewModels 
+namespace DigitalWellBeingApp.View 
 {
     public partial class MainWindow : Window
     {
