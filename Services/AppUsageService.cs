@@ -35,5 +35,16 @@ namespace DigitalWellBeingApp.Services
                 db.SaveChanges();
             }
         }
+        // get app usage by date
+        public List<AppUsage> GetAppUsagesByDate(DateTime date)
+        {
+            using (var db = new AppUsageContext())
+            {
+                return db.AppUsages
+                         .Where(a => a.UsageDate == date.Date)
+                         .OrderByDescending(a => a.DurationSeconds) // optional: sort longest first
+                         .ToList();
+            }
+        }
     }
 }
