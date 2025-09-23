@@ -7,6 +7,6 @@ namespace DigitalWellBeingApp.Models
         public int Id { get; set; }
         public string ProcessName { get; set; }
         public DateTime UsageDate { get; set; }
-        public int DurationSeconds { get; set; }
+        public TimeSpan DurationSeconds { get; set; }
     }
 }

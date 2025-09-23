@@ -20,7 +20,7 @@ namespace DigitalWellBeingApp.Services
 
                 if (existing != null)
                 {
-                    existing.DurationSeconds += durationSeconds;
+                    existing.DurationSeconds += TimeSpan.FromSeconds(durationSeconds);
                 }
                 else
                 {
@@ -28,7 +28,7 @@ namespace DigitalWellBeingApp.Services
                     {
                         ProcessName = processName,
                         UsageDate = today,
-                        DurationSeconds = durationSeconds
+                        DurationSeconds = TimeSpan.FromSeconds(durationSeconds)
                     });
                 }
 
