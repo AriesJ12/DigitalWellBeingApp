@@ -3,7 +3,9 @@
 
 - testing 
 
-- next is graph
+- show database in database
+
+- next is graph 
 
 - next is stopping/blocking apps
 
