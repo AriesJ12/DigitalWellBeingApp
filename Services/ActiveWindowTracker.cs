@@ -39,5 +39,8 @@ namespace DigitalWellBeingApp.Services
         public IReadOnlyDictionary<string, UsageRecord> GetUsage() => _usage;
 
         public void StoreUsage(string processName)
+        {
+            
+        }
     }
 }
