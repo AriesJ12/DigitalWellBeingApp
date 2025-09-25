@@ -28,7 +28,7 @@ namespace DigitalWellBeingApp.Services
                 if (!_usage.ContainsKey(_lastProcess))
                     _usage[_lastProcess] = new UsageRecord(_lastProcess);
 
-                _usage[_lastProcess].AddTime(timeSpent);
+                _usage[_lastProcess].AddTime((int)timeSpent.TotalSeconds);
             }
 
             // Switch to new process

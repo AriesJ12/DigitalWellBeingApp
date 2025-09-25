@@ -10,13 +10,13 @@ namespace DigitalWellBeingApp.Models
         public UsageRecord(string processName)
         {
             ProcessName = processName;
-            DurationSeconds = TimeSpan.Zero;
+            DurationSeconds = 0;
         }
 
         /// <summary>
         /// Add time to the record (used when the app is active).
         /// </summary>
-        public void AddTime(TimeSpan timeSpent)
+        public void AddTime(int timeSpent)
         {
             DurationSeconds += timeSpent;
         }
