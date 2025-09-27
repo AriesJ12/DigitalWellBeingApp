@@ -1,22 +1,27 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using DigitalWellBeingApp.Models;
+using DigitalWellBeingApp.Services;
+using System;
 
 namespace DigitalWellBeingApp.ViewModels
 {
     public partial class AppTimeViewModel : ObservableObject
     {
+        private readonly AppUsageService _service = new AppUsageService();
+
         [ObservableProperty]
-        private ObservableCollection<AppUsage> appUsages;
+        private ObservableCollection<AppUsage> appUsages = new();
 
         public AppTimeViewModel()
         {
-            AppUsages = new ObservableCollection<AppUsage>
-            {
-                new AppUsage { ProcessName = "Chrome", DurationSeconds = TimeSpan.FromSeconds(120) },
-                new AppUsage { ProcessName = "VS Code", DurationSeconds = TimeSpan.FromSeconds(90) },
-                new AppUsage { ProcessName = "Spotify", DurationSeconds = TimeSpan.FromSeconds(45) }
-            };
+            LoadData(DateTime.Today);
+        }
+
+        public void LoadData(DateTime date)
+        {
+            var data = _service.GetAppUsagesByDate(date);
+            AppUsages = new ObservableCollection<AppUsage>(data);
         }
     }
 }
