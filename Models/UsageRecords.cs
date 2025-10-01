@@ -20,5 +20,10 @@ namespace DigitalWellBeingApp.Models
         {
             DurationSeconds += timeSpent;
         }
+
+        public void Reset()
+        {
+            DurationSeconds = 0;
+        }
     }
 }

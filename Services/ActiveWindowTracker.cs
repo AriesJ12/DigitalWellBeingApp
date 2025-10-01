@@ -9,18 +9,23 @@ namespace DigitalWellBeingApp.Services
         private readonly Dictionary<string, UsageRecord> _usage = new();
         private string _lastProcess;
         private DateTime _lastSwitchTime;
+        private readonly AppUsageService _service = new AppUsageService();
 
         public ActiveWindowTracker()
         {
             _lastProcess = "";
             _lastSwitchTime = DateTime.Now;
+
+            // flush every 10 minutes
+            var timer = new System.Timers.Timer(10 * 60 * 1000);
+            timer.Elapsed += (s, e) => FlushToDb();
+            timer.Start();
         }
 
         public void NotifyActiveProcess(string processName)
         {
             var now = DateTime.Now;
 
-            // Add time to the last process
             if (!string.IsNullOrEmpty(_lastProcess))
             {
                 var timeSpent = now - _lastSwitchTime;
@@ -31,16 +36,17 @@ namespace DigitalWellBeingApp.Services
                 _usage[_lastProcess].AddTime((int)timeSpent.TotalSeconds);
             }
 
-            // Switch to new process
             _lastProcess = processName;
             _lastSwitchTime = now;
         }
 
-        public IReadOnlyDictionary<string, UsageRecord> GetUsage() => _usage;
-
-        public void StoreUsage(string processName)
+        public void FlushToDb()
         {
-            
+            foreach (var record in _usage.Values)
+            {
+                _service.TrackAppUsage(record.ProcessName, record.DurationSeconds);
+                record.Reset(); // optional, so you don’t double count
+            }
         }
     }
 }
