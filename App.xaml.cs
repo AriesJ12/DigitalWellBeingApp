@@ -10,31 +10,32 @@ namespace DigitalWellBeingApp;
 /// </summary>
 public partial class App : Application
 {
-    private readonly ActiveWindowTracker tracker;
-    private readonly ActiveWindowWatcher watcher;
+    public ActiveWindowTracker Tracker { get; } = new ActiveWindowTracker();
+    private readonly ActiveWindowWatcher _watcher;
 
     public App()
     {
-        tracker = new ActiveWindowTracker();
-        watcher = new ActiveWindowWatcher();
+        Tracker = new ActiveWindowTracker();
+        _watcher = new ActiveWindowWatcher();
     }
     
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
 
-        watcher.OnActiveWindowChanged += (procName, pid, hwnd) =>
+        _watcher.OnActiveWindowChanged += (procName, pid, hwnd) =>
         {
-            tracker.NotifyActiveProcess(procName);
+            Tracker.NotifyActiveProcess(procName);
         };
 
-        watcher.Start();
+        _watcher.Start();
     }
 
     protected override void OnExit(ExitEventArgs e)
     {
         base.OnExit(e);
-        watcher.Dispose();
+        _watcher.Dispose();
+        Tracker.FlushToDb();
 
         // Cleanup logic here
     }
