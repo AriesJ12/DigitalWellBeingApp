@@ -26,10 +26,9 @@ namespace DigitalWellBeingApp.Services
         {
             var now = DateTime.Now;
 
-            if (!string.IsNullOrEmpty(_lastProcess))
+            if (!string.IsNullOrEmpty(_lastProcess) && _lastSwitchTime != default && processName != _lastProcess)
             {
                 var timeSpent = now - _lastSwitchTime;
-
                 if (!_usage.ContainsKey(_lastProcess))
                     _usage[_lastProcess] = new UsageRecord(_lastProcess);
 
@@ -39,6 +38,7 @@ namespace DigitalWellBeingApp.Services
             _lastProcess = processName;
             _lastSwitchTime = now;
         }
+
 
         public void FlushToDb()
         {
