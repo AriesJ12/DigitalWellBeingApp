@@ -12,3 +12,6 @@
 - next is stopping/blocking apps
 
 - folder fixing, actually its good enough since its smol
+
+bug: 
+it seems to display 5 mins despite spending less than that?
