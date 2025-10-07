@@ -24,8 +24,7 @@
                                 Margin="0 5">
                             <TextBlock Text="{Binding ProcessName}"
                                     Width="150"/>
-                            <TextBlock Text="{Binding DurationSeconds}"/>
-                            <TextBlock Text=" mins"/>
+                            <TextBlock Text="{Binding DurationFormatted}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
