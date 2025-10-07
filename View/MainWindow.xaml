@@ -29,6 +29,8 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+
+            <comp:WeeklyUsageChart/>
         </StackPanel>
     </Grid>
 </Window>

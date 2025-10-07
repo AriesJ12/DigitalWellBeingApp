@@ -3,11 +3,9 @@
 
 - testing 
 
-- show database in database
+- show database in database(done)
 
-- database now works(problem is graph is not showing)
-
-- next is graph 
+- next is graph
 
 - next is stopping/blocking apps
 
