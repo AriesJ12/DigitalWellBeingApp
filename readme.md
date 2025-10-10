@@ -5,7 +5,7 @@
 
 - show database in database(done)
 
-- next is graph
+- next is graph (missing now is just the weekly data)
 
 - next is stopping/blocking apps
 
