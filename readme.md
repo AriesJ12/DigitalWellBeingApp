@@ -5,6 +5,8 @@
 
 - show database in database(done)
 
+- showing of time broke
+
 - next is graph (missing now is just the weekly data)
 
 - next is stopping/blocking apps
