@@ -9,6 +9,7 @@ namespace DigitalWellBeingApp.View.Components
     {
         public WeeklyUsageChart()
         {
+            InitializeComponent();
             DataContext = new WeeklyUsageChartViewModel();
         }
     }

@@ -6,7 +6,7 @@ namespace DigitalWellBeingApp.View.Components
     {
         public AppUsageCard()
         {
-            
+            InitializeComponent();
         }
     }
 }

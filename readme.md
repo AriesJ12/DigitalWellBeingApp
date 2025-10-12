@@ -5,7 +5,7 @@
 
 - show database in database(done)
 
-- showing of time broke
+- showing of time broke (fixed)
 
 - next is graph (missing now is just the weekly data)
 
