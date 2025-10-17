@@ -9,7 +9,13 @@
 
 - next is graph (missing now is just the weekly data)
 
-- next is stopping/blocking apps (it should be switching, reward based. 30 min game time = 30 min work/learning)
+# next is stopping/blocking apps (it should be switching, reward based. 30 min game time = 30 min work/learning)
+- create another table for timer
+- one is for productive apps
+- create a black semi transparent window
+- detect window change
+- check the timer
+- 
 
 - folder fixing, actually its good enough since its smol
 
