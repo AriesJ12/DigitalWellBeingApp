@@ -6,6 +6,7 @@ namespace DigitalWellBeingApp.Data
     public class AppUsageContext : DbContext
     {
         public DbSet<AppUsage> AppUsages { get; set; }
+        public DbSet<AppCategoryMapping> AppCategoryMappings { get; set; }
 
         public string DbPath { get; }
 
@@ -13,7 +14,7 @@ namespace DigitalWellBeingApp.Data
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
-            DbPath = System.IO.Path.Join(path, "app_usage.db");
+            DbPath = System.IO.Path.Join(path, "digital_wellbeing.db");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -22,8 +23,15 @@ namespace DigitalWellBeingApp.Data
             optionsBuilder.UseSqlite($"Data Source={DbPath}");
         }
 
-        
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<AppCategoryMapping>()
+                .HasIndex(m => m.ProcessName)
+                .IsUnique();
+
+            base.OnModelCreating(modelBuilder);
+        }
 
     }
-    
+
 }
