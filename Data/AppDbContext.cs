@@ -3,14 +3,14 @@ using DigitalWellBeingApp.Models;
 
 namespace DigitalWellBeingApp.Data
 {
-    public class AppUsageContext : DbContext
+    public class AppDbContext : DbContext
     {
         public DbSet<AppUsage> AppUsages { get; set; }
         public DbSet<AppCategoryMapping> AppCategoryMappings { get; set; }
 
         public string DbPath { get; }
 
-        public AppUsageContext()
+        public AppDbContext()
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);

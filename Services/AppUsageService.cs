@@ -10,7 +10,7 @@ namespace DigitalWellBeingApp.Services
         // records app usage
         public void TrackAppUsage(string processName, int durationSeconds)
         {
-            using (var db = new AppUsageContext())
+            using (var db = new AppDbContext())
             {
                 var today = DateTime.Today;
 
@@ -38,7 +38,7 @@ namespace DigitalWellBeingApp.Services
         // get app usage by date
         public List<AppUsage> GetAppUsagesByDate(DateTime date)
         {
-            using (var db = new AppUsageContext())
+            using (var db = new AppDbContext())
             {
                 return db.AppUsages
                          .Where(a => a.UsageDate == date.Date)
