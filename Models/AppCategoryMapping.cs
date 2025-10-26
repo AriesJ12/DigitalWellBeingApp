@@ -1,4 +1,5 @@
 using System;
+using DigitalWellBeingApp.Models.Enums;
 
 namespace DigitalWellBeingApp.Models
 {
@@ -8,6 +9,6 @@ namespace DigitalWellBeingApp.Models
         public string ProcessName { get; set; } = string.Empty;
 
         public string WindowTitle { get; set; } = string.Empty;
-        public string Category { get; set; } = string.Empty;
+        public AppCategory Category { get; set; } 
     }
 }

@@ -26,6 +26,10 @@ namespace DigitalWellBeingApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AppCategoryMapping>()
+            .Property(m => m.Category)
+            .HasConversion<string>();
+            
+            modelBuilder.Entity<AppCategoryMapping>()
                 .HasIndex(m => m.ProcessName)
                 .IsUnique();
 
