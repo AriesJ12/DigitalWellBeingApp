@@ -8,6 +8,8 @@ namespace DigitalWellBeingApp.Data
         public DbSet<AppUsage> AppUsages { get; set; }
         public DbSet<AppCategoryMapping> AppCategoryMappings { get; set; }
 
+        public DbSet<CategoryDebt> CategoryDebts { get; set; }
+
         public string DbPath { get; }
 
         public AppDbContext()
@@ -28,7 +30,7 @@ namespace DigitalWellBeingApp.Data
             modelBuilder.Entity<AppCategoryMapping>()
             .Property(m => m.Category)
             .HasConversion<string>();
-            
+
             modelBuilder.Entity<AppCategoryMapping>()
                 .HasIndex(m => m.ProcessName)
                 .IsUnique();

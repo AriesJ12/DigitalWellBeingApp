@@ -1,6 +1,6 @@
 using DigitalWellBeingApp.Models.Enums;
 
-public class CategoryBalanceRule
+public class CategoryDebt
 {
     public int Id { get; set; }
 
