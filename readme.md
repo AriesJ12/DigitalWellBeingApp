@@ -1,3 +1,10 @@
+- weekly data
+- table for balance/debt
+- service for balance/debt
+-- save debt, store in memory, check debt
+
+
+
 - background tracking(migrate event on app.xaml.cs dont forget to unhook the event) - done
 - database saving -- remove usage model, fix app tracking services - done (net tested)
 
