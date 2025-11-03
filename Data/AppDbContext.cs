@@ -35,6 +35,18 @@ namespace DigitalWellBeingApp.Data
                 .HasIndex(m => m.ProcessName)
                 .IsUnique();
 
+            modelBuilder.Entity<CategoryDebt>()
+                .Property(m => m.SourceCategory)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<CategoryDebt>()
+                .Property(m => m.TargetCategory)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<CategoryDebt>()
+                .HasIndex(cd => new { cd.SourceCategory, cd.TargetCategory })
+                .IsUnique();
+
             base.OnModelCreating(modelBuilder);
         }
 

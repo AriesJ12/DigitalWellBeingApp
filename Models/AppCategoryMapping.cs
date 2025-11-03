@@ -7,8 +7,6 @@ namespace DigitalWellBeingApp.Models
     {
         public int Id { get; set; }
         public string ProcessName { get; set; } = string.Empty;
-
-        public string WindowTitle { get; set; } = string.Empty;
         public AppCategory Category { get; set; } 
     }
 }

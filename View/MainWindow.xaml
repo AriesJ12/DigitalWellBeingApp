@@ -10,24 +10,30 @@
         <vm:AppTimeViewModel/>
 
     </Window.DataContext>
-    <Grid>
-        <StackPanel Margin="20">
+    <Grid x:Name="Main" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="20,20,20,34" Grid.RowSpan="2">
             <TextBlock Text="App Usage Times"
                        FontSize="20"
                        FontWeight="Bold"
                        Margin="0 0 0 10"/>
+            <comp:WeeklyUsageChart/>
 
             <!-- This will list out all apps from AppUsages -->
-            <ItemsControl ItemsSource="{Binding AppUsages}">
+            <ItemsControl ItemsSource="{Binding AppUsages}" Margin="0,5,0,0">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <comp:AppUsageCard/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
-
-            <comp:WeeklyUsageChart/>
         </StackPanel>
     </Grid>
 </Window>

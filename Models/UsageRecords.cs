@@ -1,5 +1,5 @@
 using System;
-
+// extension of app usage(used by services)
 namespace DigitalWellBeingApp.Models
 {
     /// <summary>
