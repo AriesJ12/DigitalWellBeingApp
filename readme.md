@@ -11,3 +11,6 @@
 
 - blocking of apps
 - leetcode api
+
+
+- in creating the service. make sure to read the fake services
