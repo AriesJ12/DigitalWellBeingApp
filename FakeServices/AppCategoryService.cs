@@ -9,5 +9,24 @@ namespace DigitalWellBeingApp.FakeServices
 {
     class AppCategoryService
     {
+        public List<string> GetCategories()
+        {
+            return new List<string>
+            {
+                "Uncategorized",
+                "Productive",
+                "Entertainment"
+            };
+        }
+
+        public List<string> GetAppsInCategory(string category)
+        {
+            return new List<string>
+            {
+                "Discord",
+                "Chrome",
+                "Roblox"
+            };
+        }
     }
 }

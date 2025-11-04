@@ -43,7 +43,7 @@ namespace DigitalWellBeingApp.FakeServices
 
     class AppUsageService
     {
-        public List<DailyRecord> DailyRecord(DateOnly date)
+        public List<DailyRecord> GetDailyRecord(DateOnly date)
         {
             return new List<DailyRecord>
             {
@@ -52,7 +52,7 @@ namespace DigitalWellBeingApp.FakeServices
             };
         }
 
-        public List<double> WeeklyRecord(int indexWeek, int month, int year)
+        public List<double> GetWeeklyRecord(int indexWeek, int month, int year)
         {
             return new List<double>
             {
