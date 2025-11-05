@@ -1,8 +1,8 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
 using DigitalWellBeingApp.Models;
-using DigitalWellBeingApp.Services;
-using System;
+using DigitalWellBeingApp.FakeServices;
+
 
 namespace DigitalWellBeingApp.ViewModels
 {
@@ -11,17 +11,17 @@ namespace DigitalWellBeingApp.ViewModels
         private readonly AppUsageService _service = new AppUsageService();
 
         [ObservableProperty]
-        private ObservableCollection<AppUsage> appUsages = new();
+        private ObservableCollection<DailyRecord> appUsages = new();
 
         public AppTimeViewModel()
         {
-            LoadData(DateTime.Today);
+            LoadData(DateOnly.FromDateTime(DateTime.Today));
         }
 
-        public void LoadData(DateTime date)
+        public void LoadData(DateOnly date)
         {
-            var data = _service.GetAppUsagesByDate(date);
-            AppUsages = new ObservableCollection<AppUsage>(data);
+            var data = _service.GetDailyRecord(date);
+            AppUsages = new ObservableCollection<DailyRecord>(data);
         }
     }
 }

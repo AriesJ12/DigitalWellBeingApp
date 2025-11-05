@@ -1,28 +1,51 @@
-using LiveCharts;
-using LiveCharts.Wpf;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
+using DigitalWellBeingApp.FakeServices;
 
-namespace DigitalWellBeingApp.ViewModels.Components
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+
+namespace DigitalWellBeingApp.ViewModels
 {
     public partial class WeeklyUsageChartViewModel : ObservableObject
     {
-        [ObservableProperty]
-        private SeriesCollection weeklySeries;
+        private readonly AppUsageService _service = new AppUsageService();
 
         [ObservableProperty]
-        private List<string> weekDays;
+        private ObservableCollection<WeeklyRecord> appUsages = new();
+
+        [ObservableProperty]
+        private ISeries[] weeklySeries = [];
+
+        private List<Axis> XAxes = [];
 
         public WeeklyUsageChartViewModel()
         {
-            weekDays = new List<string> { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+            LoadData(1,2,3);
+        }
 
-            weeklySeries = new SeriesCollection
+        public void LoadData(int indexWeek, int month, int year)
+        {
+            var data = _service.GetWeeklyRecord(indexWeek, month, year);
+            AppUsages = new ObservableCollection<WeeklyRecord>(data);
+
+            WeeklySeries = new ISeries[]
             {
-                new ColumnSeries
+                new ColumnSeries<double>
                 {
-                    Title = "App Usage",
-                    Values = new ChartValues<double> { 2.5, 3, 1.5, 4, 2, 3.5, 1 }
+                    Name = "App Usage (hrs)",
+                    Values = AppUsages.Select(x => x.Hours).ToArray()
+                }
+            };
+
+            XAxes = new List<Axis>
+            {
+                new Axis
+                {
+                    Name = "Days",
+                    // Use the labels property to define named labels.
+                    Labels = AppUsages.Select(x => x.Day).ToArray()
                 }
             };
         }

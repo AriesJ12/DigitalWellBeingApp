@@ -1,6 +1,5 @@
 using System;
 using System.Windows.Controls;
-using DigitalWellBeingApp.ViewModels.Components;
 
 
 namespace DigitalWellBeingApp.View.Components
@@ -10,7 +9,6 @@ namespace DigitalWellBeingApp.View.Components
         public WeeklyUsageChart()
         {
             InitializeComponent();
-            DataContext = new WeeklyUsageChartViewModel();
         }
     }
 }

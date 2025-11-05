@@ -34,11 +34,24 @@ namespace DigitalWellBeingApp.FakeServices
         string Duration { get; }
 
     }
+
+    interface WeeklyRecord
+    {
+        string Day { get; }
+        double Hours { get; }
+    }
+
     class AppDailyRecord : DailyRecord
     {
         public string IconPath { get; set; } = string.Empty;
         public string AppName { get; set; } = string.Empty;
         public string Duration { get; set; } = string.Empty;
+    }
+
+    class AppWeeklyRecord : WeeklyRecord
+    {
+        public string Day { get; set; } = string.Empty;
+        public double Hours { get; set; }
     }
 
     class AppUsageService
@@ -52,15 +65,17 @@ namespace DigitalWellBeingApp.FakeServices
             };
         }
 
-        public List<double> GetWeeklyRecord(int indexWeek, int month, int year)
+        public List<WeeklyRecord> GetWeeklyRecord(int indexWeek, int month, int year)
         {
-            return new List<double>
+            return new List<WeeklyRecord>
             {
-                1,
-                2,
-                1.5,
-                12
+                new AppWeeklyRecord { Day = "Sunday", Hours=1.5 },
+                new AppWeeklyRecord { Day = "Monday", Hours=1.7},
+                new AppWeeklyRecord { Day = "Tuesday", Hours=4.4 },
+                new AppWeeklyRecord { Day = "Wednesday", Hours=12},
+                new AppWeeklyRecord { Day = "Thursday", Hours=2 },
             };
+
         }
     }
 }
