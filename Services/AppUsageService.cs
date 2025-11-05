@@ -12,7 +12,7 @@ namespace DigitalWellBeingApp.Services
         {
             using (var db = new AppDbContext())
             {
-                var today = DateTime.Today;
+                var today = DateOnly.FromDateTime(DateTime.Today);
 
                 var existing = db.AppUsages
                                  .FirstOrDefault(a => a.ProcessName == processName &&
@@ -38,10 +38,11 @@ namespace DigitalWellBeingApp.Services
         // get app usage by date
         public List<AppUsage> GetAppUsagesByDate(DateTime date)
         {
+            DateOnly dateOnly = DateOnly.FromDateTime(date);
             using (var db = new AppDbContext())
             {
                 return db.AppUsages
-                         .Where(a => a.UsageDate == date.Date)
+                         .Where(a => a.UsageDate == dateOnly)
                          .OrderByDescending(a => a.DurationSeconds) // optional: sort longest first
                          .ToList();
             }

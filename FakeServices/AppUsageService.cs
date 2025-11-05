@@ -26,7 +26,7 @@ using System.Threading.Tasks;
 */
 namespace DigitalWellBeingApp.FakeServices
 {
-    interface DailyRecord
+    public interface DailyRecord
     {
         string IconPath { get; }
         string AppName { get; }
@@ -35,7 +35,7 @@ namespace DigitalWellBeingApp.FakeServices
 
     }
 
-    interface WeeklyRecord
+    public interface WeeklyRecord
     {
         string Day { get; }
         double Hours { get; }
