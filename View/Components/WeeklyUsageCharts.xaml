@@ -4,11 +4,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-             xmlns:vm="clr-namespace:DigitalWellBeingApp.ViewModels"
+             xmlns:vms="clr-namespace:DigitalWellBeingApp.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="200" d:DesignWidth="400">
     <UserControl.DataContext>
-        <vm:WeeklyUsageChartViewModel/>
+        <vms:WeeklyUsageChartViewModel/>
     </UserControl.DataContext>
     <Grid Margin="10">
         <TextBlock Text="Weekly Usage"

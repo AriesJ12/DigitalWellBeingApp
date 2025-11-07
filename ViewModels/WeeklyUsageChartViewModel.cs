@@ -35,7 +35,8 @@ namespace DigitalWellBeingApp.ViewModels
                 new ColumnSeries<double>
                 {
                     Name = "App Usage (hrs)",
-                    Values = AppUsages.Select(x => x.Hours).ToArray()
+                    Values = [1.2,1.5,1.3]
+                    //Values = AppUsages.Select(x => x.Hours).ToArray()
                 }
             };
 
@@ -45,7 +46,8 @@ namespace DigitalWellBeingApp.ViewModels
                 {
                     Name = "Days",
                     // Use the labels property to define named labels.
-                    Labels = AppUsages.Select(x => x.Day).ToArray()
+                    Labels = ["Sergio", "Lando", "Lewis"]
+                    //Labels = AppUsages.Select(x => x.Day).ToArray()
                 }
             };
         }
