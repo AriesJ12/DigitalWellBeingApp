@@ -1,6 +1,5 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using DigitalWellBeingApp.Models;
 using DigitalWellBeingApp.FakeServices;
 
 

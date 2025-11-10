@@ -18,7 +18,8 @@ namespace DigitalWellBeingApp.ViewModels
         [ObservableProperty]
         private ISeries[] weeklySeries = [];
 
-        private List<Axis> XAxes = [];
+        [ObservableProperty]
+        private List<Axis> xAxes = new();
 
         public WeeklyUsageChartViewModel()
         {
@@ -35,8 +36,7 @@ namespace DigitalWellBeingApp.ViewModels
                 new ColumnSeries<double>
                 {
                     Name = "App Usage (hrs)",
-                    Values = [1.2,1.5,1.3]
-                    //Values = AppUsages.Select(x => x.Hours).ToArray()
+                    Values = AppUsages.Select(x => x.Hours).ToArray()
                 }
             };
 
@@ -45,9 +45,7 @@ namespace DigitalWellBeingApp.ViewModels
                 new Axis
                 {
                     Name = "Days",
-                    // Use the labels property to define named labels.
-                    Labels = ["Sergio", "Lando", "Lewis"]
-                    //Labels = AppUsages.Select(x => x.Day).ToArray()
+                    Labels = AppUsages.Select(x => x.Day).ToArray()
                 }
             };
         }

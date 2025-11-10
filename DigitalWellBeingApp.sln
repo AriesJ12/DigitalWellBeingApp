@@ -4,6 +4,8 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalWellBeingApp", "DigitalWellBeingApp.csproj", "{C230727E-F73E-D2B5-0D9E-ED3A6F3BDF54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalWellBeingApp.tests", "..\DigitalWellBeingApp.tests\DigitalWellBeingApp.tests\DigitalWellBeingApp.tests.csproj", "{91E2740E-03FE-F963-D266-C64348AE431B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,10 @@ Global
 		{C230727E-F73E-D2B5-0D9E-ED3A6F3BDF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C230727E-F73E-D2B5-0D9E-ED3A6F3BDF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C230727E-F73E-D2B5-0D9E-ED3A6F3BDF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E2740E-03FE-F963-D266-C64348AE431B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E2740E-03FE-F963-D266-C64348AE431B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E2740E-03FE-F963-D266-C64348AE431B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E2740E-03FE-F963-D266-C64348AE431B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

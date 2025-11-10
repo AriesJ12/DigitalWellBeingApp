@@ -54,7 +54,7 @@ namespace DigitalWellBeingApp.FakeServices
         public double Hours { get; set; }
     }
 
-    class AppUsageService
+    public class AppUsageService
     {
         public List<DailyRecord> GetDailyRecord(DateOnly date)
         {

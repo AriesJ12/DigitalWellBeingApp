@@ -18,7 +18,10 @@
 
         <lvc:CartesianChart
             Series="{Binding WeeklySeries}"
-            XAxes="{Binding Labels}">
+            XAxes="{Binding XAxes}"
+            Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Grid}}"
+            Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=Grid}}"
+            >
         </lvc:CartesianChart>
     </Grid>
 </UserControl>
