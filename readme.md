@@ -14,3 +14,17 @@
 
 
 - in creating the service. make sure to read the fake services
+
+
+change the project
+- remove the storage
+- keep entertainment app(roblox, league of legends) on a file
+- keep productive apps
+
+UI will go like
+
+Productive time: or Leetcode problem:
+
+to
+
+How much game time:

@@ -2,38 +2,29 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:DigitalWellBeingApp.ViewModels"
-        xmlns:comp="clr-namespace:DigitalWellBeingApp.View.Components"
         Title="Digital Well-Being"
-        Height="450"
-        Width="450">
-    <Window.DataContext>
-        <vm:AppTimeViewModel/>
-
-    </Window.DataContext>
-    <Grid x:Name="Main" ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        Height="575"
+        Width="806">
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="20,20,20,34" Grid.RowSpan="2">
-            <TextBlock Text="App Usage Times"
-                       FontSize="20"
-                       FontWeight="Bold"
-                       Margin="0 0 0 10"/>
-            <comp:WeeklyUsageChart Height="183" Width="415"/>
-            <ItemsControl ItemsSource="{Binding AppUsages}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <comp:AppUsageCard/>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-
-            <!-- This will list out all apps from AppUsages -->
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="Productive" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="52" Grid.Column="1" Grid.Row="3" Click="Productive_Click"/>
+        <Button Content="Deactivate" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="52" Grid.Column="3" Grid.Row="3"/>
+        <Label Grid.Column="1" Content="Do work" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="21" FontFamily="Unispace"/>
+        <Label Grid.Column="3" Content="Do Fun" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="21" FontFamily="Unispace"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46" PreviewTextInput="NumericOnly"/>
+        <TextBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46" PreviewTextInput="NumericOnly"/>
     </Grid>
 </Window>

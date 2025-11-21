@@ -10,7 +10,7 @@ namespace DigitalWellBeingApp.View
         public MainWindow()
         {
             // get the global tracker from App.xaml.cs
-            _tracker = ((App)Application.Current).Tracker;
+            _tracker = ((App)System.Windows.Application.Current).Tracker;
         }
 
         protected override void OnActivated(EventArgs e)
@@ -20,5 +20,11 @@ namespace DigitalWellBeingApp.View
             // flush the shared tracker data, not a new one
             _tracker.FlushToDb();
         }
+
+        private void NumericOnly(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = !e.Text.All(char.IsDigit);
+        }
+
     }
 }
