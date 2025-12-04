@@ -5,26 +5,20 @@
         Title="Digital Well-Being"
         Height="575"
         Width="806">
-    <Grid ShowGridLines="True">
+    <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button x:Name="Productive" Content="Apply" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="52" Grid.Column="1" Grid.Row="3" Click="Productive_Click"/>
-        <Button Content="Deactivate" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="100" MinHeight="52" Grid.Column="3" Grid.Row="3"/>
-        <Label Grid.Column="1" Content="Do work" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="21" FontFamily="Unispace"/>
-        <Label Grid.Column="3" Content="Do Fun" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="21" FontFamily="Unispace"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46" PreviewTextInput="NumericOnly"/>
-        <TextBox Grid.Column="3" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="46" PreviewTextInput="NumericOnly"/>
+        <Border BorderBrush="Black" BorderThickness="1" Opacity="0.4">
+            <Border.Background>
+                <ImageBrush ImageSource="/View/coding.jpg"/>
+            </Border.Background>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Opacity="0.4">
+            <Border.Background>
+                <ImageBrush ImageSource="/View/league.jpg" Stretch="UniformToFill"/>
+            </Border.Background>
+        </Border>
     </Grid>
 </Window>
